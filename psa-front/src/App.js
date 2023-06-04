@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import TabNavigator from './components/TabNavigator';
+import ProyectosScreen from './tabsContents/Proyectos';
+import SoporteScreen from './tabsContents/Soporte';
+import RecursosScreen from './tabsContents/Recursos';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <div>PSA</div>
       </header>
+      <body>
+        <TabNavigator 
+          tabs={['Proyectos', 'Soporte', 'Recursos']}
+          contents={[<ProyectosScreen/>, <SoporteScreen/>, <RecursosScreen/>]}
+        />
+      </body>
     </div>
   );
 }
