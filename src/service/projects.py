@@ -7,14 +7,10 @@ db = get_database()
 collection = "projects"
 
 
-def dict_projects() -> Dict[str, Project]:
-    projects = map(lambda x: Project(x["name"]), db.get(collection, {}))
-    return dict(map(lambda x: (x.name, x), projects))
+def list_projects() -> Dict[str, Project]:
+    return db.get(collection, {})
 
 
 def save_project(project: Project) -> bool:
-    if len(db.get(collection, {"name": project.name})) > 0:
-        return False
-
     db.save(collection, project)
     return True

@@ -6,16 +6,24 @@ from flask import request
 def route(app):
     @app.route('/projects', methods=['GET'])
     def read_projects():
-        return get_projects()
+        return {'projects': get_projects()}
 
 
     @app.route('/projects', methods=['POST'])
     def create_project():
 
-        if "name" not in request.json:
-            return "Missing 'name' field in json", 400
-
-        if not insert_projects(request.json["name"]):
-            return "A project with that name already exists", 400
+        try:
+            insert_projects(
+                request.json["name"],
+                request.json["client"],
+                request.json["start_date"],
+                request.json["end_date"],
+                request.json["project_leader"],
+                request.json["development_team"],
+                request.json["tasks"],
+                request.json["risks"]
+            )
+        except KeyError as e:
+            return f"A key is missing {e}", 400
 
         return "", 201
