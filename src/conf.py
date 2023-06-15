@@ -7,25 +7,27 @@ configurations = {
         "HOST": "0.0.0.0",
         "PORT": 35000,
         "TESTING": True,
-        "DB": False  # TODO: aca tiene que ir algo que sea una base de datos en memoria
+        "DB": "memory"
     },
     "dev": {
         "ENV": "dev",
         "HOST": "0.0.0.0",
         "PORT": 35000,
         "TESTING": True,
+        "DB": "mongo"
     },
     "prod": {
         "ENV": "prod",
         "HOST": "0.0.0.0",
         "PORT": 80,
         "TESTING": False,
+        "DB": "mongo"
     },
 }
 
 env_vals = dotenv_values(".env")
 
-if "MODE" in env_vals:
+if "ENV" in env_vals:
     configurations.setdefault('missing_key', configurations["dev"])  # Devuelve el conf de default por las dudas
     config = configurations[env_vals["ENV"]]
 else:

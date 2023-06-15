@@ -1,3 +1,3 @@
-from src.app import run_app
+from src.app import run_app, create_app
 
-run_app()
+run_app(create_app())
