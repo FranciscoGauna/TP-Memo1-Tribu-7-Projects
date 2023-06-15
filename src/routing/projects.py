@@ -8,6 +8,16 @@ from flask import request
 def route(app):
     @app.route("/projects", methods=["POST"])
     def create_project():
+        """
+        Creates a project
+        ---
+        tags:
+          - projects
+        description: Returns a list of all projects
+        responses:
+          201:
+            description: Successfully created a project
+        """
         if request.json is None:
             return {"message": f"Missing body data"}, 400
 

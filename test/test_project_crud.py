@@ -25,7 +25,7 @@ project_a_json = {
     "end_date": "2023-09-01",
     "project_leader": "Aguanti",
     "development_team": ["Tribu A"],
-    "tasks": []
+    "tasks": {}
 }
 
 
@@ -36,7 +36,7 @@ project_b_json = {
     "end_date": "2023-09-01",
     "project_leader": "Aguanti",
     "development_team": ["Tribu A"],
-    "tasks": []
+    "tasks": {}
 }
 
 
