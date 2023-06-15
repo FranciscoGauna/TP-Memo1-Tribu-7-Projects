@@ -20,8 +20,15 @@ class MongoDB:
             logger.error(f"Error connecting to database {e}")
             raise e
 
+
+
+
     def get(self, collection, obj_filter) -> List[object]:
         return list(self.db[collection].find(obj_filter))
 
     def save(self, collection, obj):
-        return self.db[collection].insert_one(obj)
+        res = self.db[collection].insert_one(obj)
+        if not res.acknowledged:
+            raise Exception("Insertion Failed")
+        return res.inserted_id
+

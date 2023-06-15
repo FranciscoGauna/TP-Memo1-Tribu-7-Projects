@@ -9,8 +9,7 @@ res = requests.post(url_projects, json={
     "end_date": "2023-09-01",
     "project_leader": "Aguanti",
     "development_team": ["Tribu A"],
-    "tasks": [],
-    "risks": [],
+    "tasks": []
 })
 print(res.status_code)
 print(res.content)

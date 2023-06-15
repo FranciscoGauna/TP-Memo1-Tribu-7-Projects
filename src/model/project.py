@@ -2,10 +2,10 @@ from typing import List
 import datetime
 
 from src.model.task import Task
-from src.model.risk import Risk
 
 
 class Project(dict):
+    uid: str
     name: str
     client: str
     start_date: datetime
@@ -13,12 +13,11 @@ class Project(dict):
     project_leader: str
     development_team: List[str]
     tasks: List[Task]
-    risks: List[Risk]
 
 
-    def __init__(self, name, client, start_date, end_date, project_leader, development_team, tasks, risks):
+    def __init__(self, name, client, start_date, end_date, project_leader, development_team, tasks, uid=None):
         super().__init__(self, name=name, client=client, start_date=start_date, end_date=end_date,
-                         project_leader=project_leader, development_team=development_team, tasks=tasks, risks=risks)
+                         project_leader=project_leader, development_team=development_team, tasks=tasks, uid=uid)
         self.name = name
         self.client = client
         self.start_date = start_date
@@ -26,4 +25,4 @@ class Project(dict):
         self.project_leader = project_leader
         self.development_team = development_team
         self.tasks = tasks
-        self.risks = risks
+        self.uid = uid

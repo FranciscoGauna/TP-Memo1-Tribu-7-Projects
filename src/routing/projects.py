@@ -6,24 +6,26 @@ from flask import request
 def route(app):
     @app.route('/projects', methods=['GET'])
     def read_projects():
+        """
+        Returns a list of all projects
+        ---
+        tags:
+          - projects
+        description: Returns a list of all projects
+        responses:
+          200:
+            description: list of projects
+        """
         return {'projects': get_projects()}
-
 
     @app.route('/projects', methods=['POST'])
     def create_project():
+        if request.json is None:
+            return {"message": f"Missing body data"}, 400
 
         try:
-            insert_projects(
-                request.json["name"],
-                request.json["client"],
-                request.json["start_date"],
-                request.json["end_date"],
-                request.json["project_leader"],
-                request.json["development_team"],
-                request.json["tasks"],
-                request.json["risks"]
-            )
+            res = insert_projects(request.json)
         except KeyError as e:
-            return f"A key is missing {e}", 400
+            return {"message": f"A key is missing {e}"}, 400
 
-        return "", 201
+        return {"message": f"Created object successfully", "id": f"{res}"}, 201
