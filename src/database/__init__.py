@@ -3,10 +3,15 @@ from src.database.memory import MemoryDB
 from src.conf import config
 
 
-def get_database():
-    if config["DB"] == "memory":
-        return MemoryDB()
-    if config["DB"] == "mongo":
-        return MongoDB(config["MONGO_URL"], config["MONGO_USER"], config["MONGO_PASS"])
+database = None
 
-    raise Exception("DB not found")
+
+def get_database():
+    global database
+    if database is None:
+        if config["DB"] == "memory":
+            database = MemoryDB()
+        if config["DB"] == "mongo":
+            database = MongoDB(config["MONGO_URL"], config["MONGO_USER"], config["MONGO_PASS"])
+
+    return database

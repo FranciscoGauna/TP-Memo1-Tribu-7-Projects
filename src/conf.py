@@ -27,7 +27,7 @@ configurations = {
 
 env_vals = dotenv_values(".env")
 
-if "MODE" in env_vals:
+if "ENV" in env_vals:
     configurations.setdefault('missing_key', configurations["dev"])  # Devuelve el conf de default por las dudas
     config = configurations[env_vals["ENV"]]
 else:
