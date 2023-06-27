@@ -24,7 +24,9 @@ def save_task(pid, task, task_id=None):
 
 def retrieve_task(pid, tid):
     project = retrieve_project(pid)
-    return project["tasks"][tid]
+    task = project["tasks"][tid]
+    task["puid"] = tid
+    return task
 
 
 def remove_task(pid, task_id):

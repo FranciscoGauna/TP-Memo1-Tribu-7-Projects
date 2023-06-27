@@ -26,6 +26,7 @@ project_a_json = {
 task_a_json = {
     "state": "Ongoing",
     "name": "MVP",
+    "description": "Develop a minimum viable product",
     "start_date": "2023-01-02",
     "end_date_est": "2023-09-02",
     "hours_est": "900"
@@ -34,6 +35,7 @@ task_a_json = {
 task_b_json = {
     "state": "Finished",
     "name": "MVP",
+    "description": "Develop a minimum viable product",
     "start_date": "2023-01-02",
     "end_date_est": "2023-09-02",
     "hours_est": "24"
@@ -41,7 +43,8 @@ task_b_json = {
 
 task_c_json = {
     "state": "Finished",
-    "name": "Amigos",
+    "name": "MongoDB Connection",
+    "description": "Develop a connection to the mongoDB atlas database",
     "start_date": "2023-01-02",
     "end_date_est": "2023-09-02",
     "hours_est": "24"
@@ -103,6 +106,7 @@ def test_project_task_create_read_one(client):
     # Cuando
     response = client.get(f"/projects/{uid}/tasks/{tid}")
     task = response.json["task"]
+    task.pop("puid")
 
     # Entonces
     assert response.status_code == 200
@@ -124,6 +128,7 @@ def test_project_task_create_put_read_one(client):
     # Cuando
     response = client.get(f"/projects/{uid}/tasks/{tid}")
     task = response.json["task"]
+    task.pop("puid")
 
     # Entonces
     assert response.status_code == 200

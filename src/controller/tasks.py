@@ -1,8 +1,9 @@
+from src.model.task import Task
 from src.service.tasks import save_task, remove_task, retrieve_task
 
 
 def post_task(pid, task):
-    return save_task(pid, task)
+    return save_task(pid, Task(**task))
 
 
 def get_task(pid, tid):
