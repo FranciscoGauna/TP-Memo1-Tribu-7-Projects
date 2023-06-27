@@ -7,35 +7,31 @@ def app():
     yield create_app()
 
 
-
 @pytest.fixture()
 def client(app):
     return app.test_client()
 
 
-@pytest.fixture()
-def runner(app):
-    return app.test_cli_runner()
-
-
 project_a_json = {
     "name": "Modulo de Proyectos - PSA",
-    "client": "PSA",
-    "start_date": "2023-01-01",
-    "end_date": "2023-09-01",
-    "project_leader": "Aguanti",
-    "development_team": ["Tribu A"],
+    "description": "Modulo de CRUD de proyectos de PSA",
+    "project_leader": 2,
+    "stage": "Ongoing",
+    "start_date": "2023-03-01",
+    "end_date": "2023-07-01",
+    "estimated_hours": 50,
     "tasks": {}
 }
 
 
 project_b_json = {
     "name": "Modulo de Soporte - PSA",
-    "client": "PSA",
-    "start_date": "2023-01-01",
-    "end_date": "2023-09-01",
-    "project_leader": "Aguanti",
-    "development_team": ["Tribu A"],
+    "description": "Modulo de CRUD de soporte de PSA",
+    "project_leader": 3,
+    "stage": "Ongoing",
+    "start_date": "2023-03-01",
+    "end_date": "2023-08-01",
+    "estimated_hours": 10,
     "tasks": {}
 }
 

@@ -2,7 +2,7 @@ from src.service.tasks import save_task, remove_task, retrieve_task
 
 
 def post_task(pid, task):
-    save_task(pid, task, task["id"])
+    return save_task(pid, task)
 
 
 def get_task(pid, tid):
