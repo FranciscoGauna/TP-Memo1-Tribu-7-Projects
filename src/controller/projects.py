@@ -1,8 +1,9 @@
+from src.model.project import Project
 from src.service.projects import retrieve_project, update_project, retrieve_projects, save_project, remove_project
 
 
 def post_project(project_json):
-    return save_project(project_json)
+    return save_project(Project(**project_json))
 
 
 def get_project(uid):
