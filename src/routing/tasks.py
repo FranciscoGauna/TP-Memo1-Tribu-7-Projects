@@ -82,6 +82,15 @@ def route(app):
         tags:
           - tasks
         description: Returns a task for a given project
+        parameters:
+          - name: pid
+            in: path
+            description: The id of the project which contains the task
+            required: true
+          - name: tid
+            in: path
+            description: The id of the task to be deleted
+            required: true
         responses:
           200:
             description: Task with the given id
@@ -133,6 +142,7 @@ def route(app):
         tags:
           - tasks
         description: Deletes a task with a given ID from a given project
+        parameters:
           - name: pid
             in: path
             description: The id of the project which contains the task
