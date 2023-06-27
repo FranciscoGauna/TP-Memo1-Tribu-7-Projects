@@ -10,6 +10,8 @@ collection = "projects"
 
 def parse_id(db_res: Dict):
     db_res["uid"] = str(db_res.pop("_id"))
+    for tid, task in db_res["tasks"].items():
+        task["puid"] = tid
     return db_res
 
 
