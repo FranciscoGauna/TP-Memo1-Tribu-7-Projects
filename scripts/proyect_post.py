@@ -1,6 +1,6 @@
 import requests
 
-url = "http://192.168.0.25:35000/"
+url = "https://projects-backend-service.onrender.com/"
 url_projects = url + "projects"
 res = requests.post(url_projects, json={
     "name": "Modulo de Proyectos - PSA",

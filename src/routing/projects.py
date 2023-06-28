@@ -124,7 +124,7 @@ def route(app):
         except IndexError:
             return {"message": "ID not found"}, 404
 
-    @app.route("/projects/<uid>", methods=["PUT"])
+    @app.route("/projects/<uid>", methods=["PUT", "PATCH"])
     def update_project(uid):
         """
         Updates a project by id

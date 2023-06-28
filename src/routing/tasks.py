@@ -106,7 +106,7 @@ def route(app):
 
         return {"message": f"Task found", "task": res}, 200
 
-    @app.route("/projects/<pid>/tasks/<tid>", methods=["PUT"])
+    @app.route("/projects/<pid>/tasks/<tid>", methods=["PUT", "PATCH"])
     def update_task(pid, tid):
         """
         Gets a Task
