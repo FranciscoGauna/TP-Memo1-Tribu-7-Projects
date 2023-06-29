@@ -7,8 +7,7 @@ db = get_database()
 collection = "projects"
 
 
-def create_task_id(pid):
-    project = retrieve_project(pid)
+def create_task_id(project):
     task_id = ObjectId()
     while task_id in project["tasks"]:
         task_id = ObjectId()
@@ -16,9 +15,12 @@ def create_task_id(pid):
 
 
 def save_task(pid, task, task_id=None):
+    project = retrieve_project(pid)
     if task_id is None:
-        task_id = str(create_task_id(pid))
-    db.update(collection, {"_id": ObjectId(pid)}, {"$set": {"tasks": {task_id: task}}})
+        task_id = str(create_task_id(project))
+    tasks = project["tasks"]
+    tasks[task_id] = task
+    db.update(collection, {"_id": ObjectId(pid)}, {"$set": {"tasks": tasks}})
     return task_id
 
 
