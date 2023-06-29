@@ -28,7 +28,7 @@ task_a_json = {
     "name": "MVP",
     "description": "Develop a minimum viable product",
     "start_date": "2023-01-02",
-    "end_date_est": "2023-09-02",
+    "end_date": "2023-09-02",
     "estimated_hours": "900"
 }
 
@@ -37,7 +37,7 @@ task_b_json = {
     "name": "MVP",
     "description": "Develop a minimum viable product",
     "start_date": "2023-01-02",
-    "end_date_est": "2023-09-02",
+    "end_date": "2023-09-02",
     "estimated_hours": "24"
 }
 
@@ -46,7 +46,7 @@ task_c_json = {
     "name": "MongoDB Connection",
     "description": "Develop a connection to the mongoDB atlas database",
     "start_date": "2023-01-02",
-    "end_date_est": "2023-09-02",
+    "end_date": "2023-09-02",
     "estimated_hours": "24"
 }
 

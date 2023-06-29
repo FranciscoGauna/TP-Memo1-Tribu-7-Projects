@@ -8,7 +8,7 @@ res = requests.post(url_projects, json={
     "description": "Develop a minimum viable product",
     "name": "MVP",
     "start_date": "2023-01-02",
-    "end_date_est": "2023-09-02",
+    "end_date": "2023-09-02",
     "estimated_hours": "900",
 })
 print(res.status_code)
